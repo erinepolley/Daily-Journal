@@ -1,3 +1,31 @@
 body {
-    background-color: black;
+font-family: "Source Sans Pro", sans-serif;
+background-color: whitesmoke;
+color: midnightblue;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: 
+}
+
+h1 {
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+label {
+    font-size: 120%;
+}
+
+p {
+    font-size: 120%;
+}
+
+.btn {
+    margin-top: 40px;
 }

@@ -1,13 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../styles/journal.css">
-    <title>Document</title>
+    <title>My Daily Journal</title>
 </head>
+
 <body>
-    
+    <header>
+        <h1>Daily Journal</h1>
+    </header>
+    <form id="form" action="">
+        <fieldset>
+            <label for="calendar">Date</label>
+            <input type="date" name="calendar">
+            <br>
+            <label for="concepts">Concepts Covered</label>
+            <br>
+            <textarea name="concepts" id="concepts" cols="50" rows="1"></textarea>
+            <br>
+            <label for="journal">Journal Entry</label>
+            <br>
+            <textarea name="journal" id="journal" cols="50" rows="10"></textarea>
+            <br>
+            <p>Mood</p>
+            <select name="mood" id="mood">
+                <option value="confident">Confident</option>
+                <option value="optimistic">Optimistic</option>
+                <option value="productive">Productive</option>
+                <option value="successful">Successful</option>
+                <option value="wizard">Like a Coding Wizard!</option>
+                <option value="confused">Confused</option>
+                <option value="discouraged">Discouraged</option>
+                <option value="depressed">Depressed</option>
+            </select>
+            <br>
+            <button type="button" class="btn btn-info">Submit</button>
+        </fieldset>
+    </form>
 </body>
+
 </html>
