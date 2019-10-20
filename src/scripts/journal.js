@@ -1,9 +1,9 @@
-myJournalEntries = []
+const myJournalEntries = []
 
-const journalEntry = {
+const journalEntry1 = {
     date: "10 / 16 / 2019",
     title: "Week Three Beginning",
-    contents: "This has been the hardest week of NSS so far. We have gone beyond the prework, and therefore beyond my comfort zone. I'd be lying if I said I wasn't in tears a few days ago. I was feeling overwhelmed and behind. I remembered the words of John, and became so grateful that they spend a few hours the first day giving us a pep talk. It made me feel better about the future, and was a good reminder to trust the process. However, it didn't make me feel less uncomfortable with the situation.",
+    contents: "This has been the hardest week of NSS so far. We have gone beyond the prework, and therefore beyond my comfort zone. I'd be lying if I said I wasn't in tears a few days ago. I was feeling overwhelmed and behind. I remembered the words of John Wark, and became so grateful that they spend a few hours the first day giving us a pep talk. It made me feel better about the future, and was a good reminder to trust the process. However, it didn't make me feel less uncomfortable with the situation.",
     mood: "Overwhelmed"
 }
 
@@ -16,13 +16,47 @@ const journalEntry2 = {
 
 const journalEntry3 = {
     date: "10 / 18 / 2019",
-    title: "Week Fri-YAY",
+    title: "Fri-YAY",
     contents: "It's Friday! I have survived another week of NSS. Where on earth did the time go?? Today, I want to talk about my amazing cohort. The camaraderie is awesome. I love everyone in this cohort, and every single person adds value to our collective experience. Already, we have inside jokes (tacos and castles), and even our own memes. It doesn't matter who I eat lunch with. I laugh with these people, eat with these people, walk with these people, and study with these people. In other words, I share with these people. We share thoughts, laughs, and this crazy experience that is NSS. I can only hope that wherever I land in my job, the team has a culture a sliver as good as NSS Cohort 36.",
     mood: "Optimistic"
 }
-
-
-myJournalEntries.push(journalEntry)
-myJournalEntries.push(journalEntry2)
-myJournalEntries.push(journalEntry3)
+//Function to push each of the three individual journal entries above to the array called myJournalEntries.
+const journalEntriesPushToArray = (journalEntry) => {
+    myJournalEntries.push(journalEntry)
+}
+//Invoking above function for each of the entries.
+journalEntriesPushToArray(journalEntry1)
+journalEntriesPushToArray(journalEntry2)
+journalEntriesPushToArray(journalEntry3)
 console.log(myJournalEntries)
+
+//build a function that returns an HTML representation of a journal entry data structure and render it to the DOM. 
+
+
+const makeJournalEntryComponent = (journalEntry) => {
+    // Create your own HTML structure for a journal entry
+    return `
+    <h2>${journalEntry.title}</h2>
+    <p><em>${journalEntry.date}</em></p>
+    <p>${journalEntry.contents}</p>
+    <p>${journalEntry.mood}</p>
+    <hr>
+    `
+}
+
+/*
+    Purpose: To render all journal entries to the DOM
+    Arguments: entries (array of objects)
+    Looping through each object in the array with .forEach. Rendering the HTML with contents of object, then storing it in journalInnerHtml.
+*/let journalInnerHtml = ""
+const renderJournalEntries = (entries) => {
+    entries.forEach(entry => {
+     journalInnerHtml += makeJournalEntryComponent(entry)
+    });
+    const journalEntriesOnDom = document.querySelector("#journal-entries")
+    journalEntriesOnDom.innerHTML = journalInnerHtml
+}
+
+// Invoke the render function, and the argument is the array of objects at the top. 
+
+renderJournalEntries(myJournalEntries)
