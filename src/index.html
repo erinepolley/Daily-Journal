@@ -19,7 +19,7 @@
     <form id="form" action="">
         <fieldset>
             <label for="calendar">Date</label>
-            <input type="date" name="calendar">
+            <input type="date" id="calendar" name="calendar">
             <br>
             <label for="concepts">Concepts Covered</label>
             <br>
@@ -43,14 +43,14 @@
                 <option value="worried">Nervous/Worried</option>
             </select>
             <br>
-            <button type="button" class="btn btn-info">Submit</button>
+            <button type="button" id="submit-button" class="btn btn-info">Submit</button>
         </fieldset>
     </form>
     <article id="journal-entries"></article>
-    <script src="scripts/data.js"></script>
-    <script src="scripts/entryComponent.js"></script>
-    <script src="scripts/entriesDOM.js"></script>
-    <script src="scripts/journal.js"></script>
+
+    <!-- <script src="scripts/entryComponent.js"></script>
+    <script src="scripts/entriesDOM.js"></script> -->
+    <script type="module" src="scripts/journal.js"></script>
 
 </body>
 
