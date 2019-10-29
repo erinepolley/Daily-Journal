@@ -1,4 +1,4 @@
-
+import API from "./data.js"
 
 /*
     Main application logic that uses the functions and objects
@@ -14,3 +14,4 @@
 // Invoke the render function, and the argument is the array of objects in the data.js file. 
 
 API.getJournalEntries()
+
