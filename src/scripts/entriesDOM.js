@@ -6,11 +6,9 @@
 */
 
 let journalInnerHtml = ""
-const renderJournalEntries = (journalEntries) => {
-     journalEntries.forEach(entry => {
-     journalInnerHtml += makeJournalEntryComponent(entry)
-    });
-    
+const renderJournalEntry = (journalEntryObj) => {
+    //console.log("JOURNAL ENTRIES", journalEntryObj)
+     journalInnerHtml += makeJournalEntryComponent(journalEntryObj)
     const journalEntriesOnDom = document.querySelector("#journal-entries")
     journalEntriesOnDom.innerHTML = journalInnerHtml
 }
