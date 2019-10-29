@@ -6,8 +6,8 @@
 */
 
 let journalInnerHtml = ""
-const renderJournalEntries = (entries) => {
-    entries.forEach(entry => {
+const renderJournalEntries = (journalEntries) => {
+     journalEntries.forEach(entry => {
      journalInnerHtml += makeJournalEntryComponent(entry)
     });
     
