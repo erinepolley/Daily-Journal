@@ -18,16 +18,16 @@
     </header>
     <form id="form" action="">
         <fieldset>
-            <label for="calendar">Date</label>
-            <input type="date" id="calendar" name="calendar">
+            <label for="date">Date</label>
+            <input type="date" id="date" name="date">
             <br>
             <label for="concepts">Concepts Covered</label>
             <br>
-            <textarea name="concepts" id="concepts" cols="50" rows="1"></textarea>
+            <textarea name="concepts" id="title" cols="50" rows="1"></textarea>
             <br>
             <label for="journal">Journal Entry</label>
             <br>
-            <textarea name="journal" id="journal" cols="50" rows="10"></textarea>
+            <textarea name="journal" id="contents" cols="50" rows="10"></textarea>
             <br>
             <p>Mood</p>
             <select name="mood" id="mood">
@@ -43,9 +43,10 @@
                 <option value="worried">Nervous/Worried</option>
             </select>
             <br>
-            <button type="button" id="submit-button" class="btn btn-info">Submit</button>
         </fieldset>
     </form>
+    <button type="button" id="submit-button" class="btn btn-info">Submit</button>
+
     <article id="journal-entries"></article>
 
     <!-- <script src="scripts/entryComponent.js"></script>
