@@ -5,12 +5,12 @@ const API = {
     getJournalEntries() {
         return fetch("http://localhost:3000/entries")
             .then(response => response.json())
-            .then(parsedEntries => {
-                console.log(parsedEntries)
-                parsedEntries.forEach(entry => {
-                    entriesOnDom.renderJournalEntry(entry)
-                })
-            })
+            // .then(parsedEntries => {
+            //     // console.log(parsedEntries)
+            //     parsedEntries.forEach(entry => {
+            //         entriesOnDom.renderJournalEntry(entry)
+            //     })
+            // })
     },
 
     saveJournalEntry(entryObject) {
