@@ -14,16 +14,25 @@ import entriesOnDom from "./entriesDOM.js"
     objectWithGetterMethod.methodToGetData().then(functionThatRendersData)
 */
 
-
+// const takeThingFromJsonAndRenderOnDom = () =>{
+//   return .then(parsedEntries => {
+//         parsedEntries.forEach(entry => {
+//             entriesOnDom.renderJournalEntry(entry)
+//         })
+//     })
+// }
 // Invoke the render function, and the argument is the array of objects in the data.js file. 
 
 API.getJournalEntries()
-    //FROM DATA.JS
+    // takeThingFromJsonAndRenderOnDom();
     .then(parsedEntries => {
         parsedEntries.forEach(entry => {
             entriesOnDom.renderJournalEntry(entry)
+
         })
     })
+
+
 //at some point this will be the factory function?
 const submitButtonEventListener = document.querySelector("#submit-button")
 console.log(submitButtonEventListener)
@@ -55,15 +64,17 @@ radioButtons.forEach(button => {
         console.log("MOOD", mood)
         API.getJournalEntries()
             .then(parsedEntries => {
-                // console.log(parsedEntries)
-                const arrayThatMatchesMood = parsedEntries.filter(entry => mood === entry.mood)
-                arrayThatMatchesMood.forEach(objInArray => {
-                    entriesOnDom.renderJournalEntry(objInArray)
+                console.log("PARSED ENTRIES", parsedEntries)
+               let arrayThatMatchesMood = parsedEntries.filter(entry =>  mood === entry.mood)
+                    console.log("FILTEREDARRAY", arrayThatMatchesMood)
+                          arrayThatMatchesMood.forEach(objInArray => {
+                              entriesOnDom.renderJournalEntry(objInArray)
+                              console.log("NEW ARRAY", arrayThatMatchesMood)
+                    })
                 })
-
             })
-    })
-})
+    }) // })
+
 
 
 // for(let i = 0; i <radioButtons.length; i++) {

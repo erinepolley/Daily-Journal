@@ -6,6 +6,9 @@ import entryComponentToHtml from "./entryComponent.js"
     Arguments: entries (array of objects)
     Looping through each object in the array with .forEach. Rendering the HTML with contents of object, then storing it in journalInnerHtml.
 */
+
+
+
 const entriesOnDom = {
     journalInnerHtml: "",
     renderJournalEntry (journalEntryObj) {
@@ -16,4 +19,12 @@ const entriesOnDom = {
         journalEntriesOnDom.innerHTML = this.journalInnerHtml
     }
 }
+
+// const takeThingFromJsonAndRenderOnDom = () =>{
+//     .then(parsedEntries => {
+//         parsedEntries.forEach(entry => {
+//             entriesOnDom.renderJournalEntry(entry)
+//         })
+//     })
+// }
 export default entriesOnDom
