@@ -1,6 +1,7 @@
 import API from "./data.js"
 import journalSenderToApi from "./journalSenderToApi.js"
 import entriesOnDom from "./entriesDOM.js"
+import deleteButtonListener from "./eventListeners"
 // import eventListener from "./eventListener.js"
 //RESPONSIBILITY: INITIAL VIEW
 
@@ -60,22 +61,27 @@ const radioButtons = document.getElementsByName("radio")
 console.log("RADIO", radioButtons)
 radioButtons.forEach(button => {
     button.addEventListener("click", event => {
+        let entryBox = document.querySelector("#journal-entries") 
+        entryBox.innerHTML = ""
         let mood = event.target.value
         console.log("MOOD", mood)
         API.getJournalEntries()
-            .then(parsedEntries => {
-                console.log("PARSED ENTRIES", parsedEntries)
-               let arrayThatMatchesMood = parsedEntries.filter(entry =>  mood === entry.mood)
-                    console.log("FILTEREDARRAY", arrayThatMatchesMood)
-                          arrayThatMatchesMood.forEach(objInArray => {
-                              entriesOnDom.renderJournalEntry(objInArray)
-                              console.log("NEW ARRAY", arrayThatMatchesMood)
-                    })
+        .then(parsedEntries => {
+            console.log("PARSED ENTRIES", parsedEntries)
+            let arrayThatMatchesMood = parsedEntries.filter(entry => mood === entry.mood)
+            console.log("FILTEREDARRAY", arrayThatMatchesMood)
+            // entriesOnDOM[journalInnerHtml].innerHTML = ""
+            
+            // let entryBox = document.querySelector("#journal-entries") 
+            console.log("ENTRY BOX", entryBox)
+            // entryBox.innerHTML = ""
+               console.log("EMPTY ENTRY BOX", entryBox)
+                arrayThatMatchesMood.forEach(objInArray => {
+                    entriesOnDom.renderJournalEntry(objInArray)
+                    console.log("NEW ARRAY", arrayThatMatchesMood)
                 })
             })
-    }) // })
+    })
+}) // })
+//SUPPOSED TO BE IN EVENTS.JS AND JUST INVOKED HERE.
 
-
-
-// for(let i = 0; i <radioButtons.length; i++) {
-//     radioButtons[i].addEventListener

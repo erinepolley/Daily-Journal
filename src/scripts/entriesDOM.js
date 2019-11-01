@@ -10,7 +10,7 @@ import entryComponentToHtml from "./entryComponent.js"
 
 
 const entriesOnDom = {
-    journalInnerHtml: "",
+        journalInnerHtml: "",
     renderJournalEntry (journalEntryObj) {
         //console.log("JOURNAL ENTRIES", journalEntryObj)
         // console.log(this.journalInnerHtml)
