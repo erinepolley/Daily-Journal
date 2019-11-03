@@ -1,32 +1,21 @@
-
-import entryObjectFactoryFunction from "./entryObjectFactoryFunction.js"
+import journalSenderToApi from "./journalSenderToApi.js"
+import entriesOnDom from "./entriesDOM.js"
 import API from "./data.js"
-// import entriesOnDom from "./entriesDOM.js"
 
-const eventListener = {
+const journalEntries = document.querySelector("#journal-entries")
+const deleteButtonListener = {
+registerDeleteListener () {
+    journalEntries.addEventListener("click", event => {
+        if(event.target.id.startsWith("deleteRecipe--")) {
+            const entryToDelete = event.target.id.split("--")[1]
 
-    sendJournalEntryToApi() {
-        const date = document.querySelector("#date").value
-        const title = document.querySelector("#title").value
-        const contents = document.querySelector("#contents").value
-        const mood = document.querySelector("option").value
-
-        //alert for calendar fires upon loading, not upon clicking submit button.
-        if (date === "") {
-            return alert("Please enter a date.")
-        } else if (title === "") {
-            return alert("Please enter a title.")
-        } else if (contents === "") {
-            return alert("Please enter a journal entry.")
-        } else if (mood === "") {
-            return alert("Please select a mood.")
-        } else {
-            let entryObjectBox = entryObjectFactoryFunction.newJournalEntry(date, title, contents, mood)
-            console.log(entryObjectBox)
-            API.saveJournalEntry(entryObjectBox)
-                .then(API.getJournalEntries)
+        API.deleteJournalEntry(entryToDelete)
+            .then(API.getJournalEntries)
+            .then(entriesOnDom.renderJournalEntry)
         }
-    }
+    })
 }
 
-export default eventListener
+}
+
+export default deleteButtonListener
