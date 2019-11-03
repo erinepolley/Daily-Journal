@@ -10,15 +10,21 @@ import entryComponentToHtml from "./entryComponent.js"
 
 
 const entriesOnDom = {
-        journalInnerHtml: "",
-    renderJournalEntry (journalEntryObj) {
+    journalInnerHtml: "",
+    renderJournalEntry(journalEntryObj) {
         //console.log("JOURNAL ENTRIES", journalEntryObj)
         // console.log(this.journalInnerHtml)
         this.journalInnerHtml += entryComponentToHtml.makeJournalEntryComponent(journalEntryObj)
         const journalEntriesOnDom = document.querySelector("#journal-entries")
         journalEntriesOnDom.innerHTML = this.journalInnerHtml
-    }
+    },
+
+    // clearDOMWithEmptyString() {
+    //     // console.log(this.journalInnerHtml)
+    //     this.journalInnerHtml = " "
+    // }
 }
+
 
 // const takeThingFromJsonAndRenderOnDom = () =>{
 //     .then(parsedEntries => {

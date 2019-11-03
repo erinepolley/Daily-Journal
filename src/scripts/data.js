@@ -5,12 +5,6 @@ const API = {
     getJournalEntries() {
         return fetch("http://localhost:3000/entries")
             .then(response => response.json())
-        // .then(parsedEntries => {
-        //     // console.log(parsedEntries)
-        //     parsedEntries.forEach(entry => {
-        //         entriesOnDom.renderJournalEntry(entry)
-        //     })
-        // })
     },
 
     saveJournalEntry(entryObject) {
@@ -22,24 +16,25 @@ const API = {
             body: JSON.stringify(entryObject)
         })
             .then(response => response.json())
-            .then(this.getJournalEntries())
-        // .then
-        // .then(parsedEntries => {
-        //     parsedEntries.forEach(entry => {
-        // entriesOnDom.renderJournalEntry(entry)
-
+        //     .then(parsedEntries => {
+        //         parsedEntries.forEach(entry => {
+        //     entriesOnDom.renderJournalEntry(entry)
+    
+        //     })
         // })
     },
 
+            // .then(this.getJournalEntries())
+        // .then
+
     deleteJournalEntry (entryId) {
-        return fetch('http://localhost:3000/entries/${entryID}', {
+        return fetch(`http://localhost:3000/entries/${entryId}`, {
             method: "DELETE"
         })
             .then(response => response.json())
     },
+
 }
-
-
 //Make another request to entries to pull new JSON file down again.
 //Currently not saving. Nothing in my API storage. 
 //THEN you probs want to parse it? 
