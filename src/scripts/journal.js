@@ -61,14 +61,15 @@ const radioButtons = document.getElementsByName("radio")
 console.log("RADIO", radioButtons)
 radioButtons.forEach(button => {
     button.addEventListener("click", event => {
-        let entryBox = document.querySelector("#journal-entries") 
-        entryBox.innerHTML = ""
+        // let entryBox = document.querySelector("#journal-entries") 
+        // entryBox.innerHTML = ""
         let mood = event.target.value
         console.log("MOOD", mood)
         API.getJournalEntries()
         .then(parsedEntries => {
             console.log("PARSED ENTRIES", parsedEntries)
-            let arrayThatMatchesMood = parsedEntries.filter(entry => mood === entry.mood)
+            let arrayThatMatchesMood = parsedEntries.filter(entry => 
+                mood === entry.mood)
             console.log("FILTEREDARRAY", arrayThatMatchesMood)
             // entriesOnDOM[journalInnerHtml].innerHTML = ""
             
