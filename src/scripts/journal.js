@@ -1,7 +1,7 @@
 import API from "./data.js"
 import journalSenderToApi from "./journalSenderToApi.js"
 import entriesOnDom from "./entriesDOM.js"
-import deleteButtonListener from "./eventListeners"
+import deleteButtonListener from "./eventListeners.js"
 // import eventListener from "./eventListener.js"
 //RESPONSIBILITY: INITIAL VIEW
 
@@ -12,7 +12,6 @@ import deleteButtonListener from "./eventListeners"
     Change the fake variable names below to what they should be
     to get the data and display it.
 
-    objectWithGetterMethod.methodToGetData().then(functionThatRendersData)
 */
 
 // const takeThingFromJsonAndRenderOnDom = () =>{
@@ -39,6 +38,8 @@ const submitButtonEventListener = document.querySelector("#submit-button")
 console.log(submitButtonEventListener)
 submitButtonEventListener.addEventListener("click", () => journalSenderToApi.sendJournalEntryToApi())
 
+deleteButtonListener.registerDeleteListener()
+
 // const dropdownValues = document.querySelector("option")
 // console.log(dropdownValues.value)
 
@@ -61,22 +62,24 @@ const radioButtons = document.getElementsByName("radio")
 console.log("RADIO", radioButtons)
 radioButtons.forEach(button => {
     button.addEventListener("click", event => {
-        // let entryBox = document.querySelector("#journal-entries") 
-        // entryBox.innerHTML = ""
+
+        // entriesOnDom.clearDOMWithEmptyString()
         let mood = event.target.value
         console.log("MOOD", mood)
+        let entryBox = document.querySelector("#journal-entries")
+        entryBox.innerHTML = ""
         API.getJournalEntries()
-        .then(parsedEntries => {
-            console.log("PARSED ENTRIES", parsedEntries)
-            let arrayThatMatchesMood = parsedEntries.filter(entry => 
-                mood === entry.mood)
-            console.log("FILTEREDARRAY", arrayThatMatchesMood)
-            // entriesOnDOM[journalInnerHtml].innerHTML = ""
-            
-            // let entryBox = document.querySelector("#journal-entries") 
-            console.log("ENTRY BOX", entryBox)
-            // entryBox.innerHTML = ""
-               console.log("EMPTY ENTRY BOX", entryBox)
+            .then(parsedEntries => {
+                console.log("PARSED ENTRIES", parsedEntries)
+                let arrayThatMatchesMood = parsedEntries.filter(entry =>
+                    mood === entry.mood)
+                console.log("FILTEREDARRAY", arrayThatMatchesMood)
+                // entriesOnDOM[journalInnerHtml].innerHTML = ""
+
+                // let entryBox = document.querySelector("#journal-entries") 
+                // console.log("ENTRY BOX", entryBox)
+                // entryBox.innerHTML = ""
+                //    console.log("EMPTY ENTRY BOX", entryBox)
                 arrayThatMatchesMood.forEach(objInArray => {
                     entriesOnDom.renderJournalEntry(objInArray)
                     console.log("NEW ARRAY", arrayThatMatchesMood)

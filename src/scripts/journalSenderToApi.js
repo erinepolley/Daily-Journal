@@ -1,6 +1,7 @@
 
 import entryObjectFactoryFunction from "./entryObjectFactoryFunction.js"
 import API from "./data.js"
+import entriesOnDom from "./entriesDOM.js"
 // import entriesOnDom from "./entriesDOM.js"
 
 const journalSenderToApi = {
@@ -23,8 +24,16 @@ const journalSenderToApi = {
         } else {
             let entryObjectBox = entryObjectFactoryFunction.newJournalEntry(date, title, contents, mood)
             console.log(entryObjectBox)
+            // entriesOnDom.clearDOMWithEmptyString()
             API.saveJournalEntry(entryObjectBox)
                 .then(API.getJournalEntries)
+                .then(parsedEntries => {
+                    parsedEntries.forEach(entry => {
+                        entriesOnDom.renderJournalEntry(entry)
+            
+                    })
+                })
+                
         }
     }
 }

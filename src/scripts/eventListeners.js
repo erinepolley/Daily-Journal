@@ -4,17 +4,24 @@ import API from "./data.js"
 
 const journalEntries = document.querySelector("#journal-entries")
 const deleteButtonListener = {
-registerDeleteListener () {
-    journalEntries.addEventListener("click", event => {
-        if(event.target.id.startsWith("deleteRecipe--")) {
-            const entryToDelete = event.target.id.split("--")[1]
-
-        API.deleteJournalEntry(entryToDelete)
-            .then(API.getJournalEntries)
-            .then(entriesOnDom.renderJournalEntry)
-        }
-    })
-}
+    registerDeleteListener() {
+        journalEntries.addEventListener("click", event => {
+            if (event.target.id.startsWith("deleteEntry--")) {
+                const entryToDelete = event.target.id.split("--")[1]
+                console.log(entryToDelete)
+                // entriesOnDom.clearDOMWithEmptyString()
+                API.deleteJournalEntry(entryToDelete)
+                    .then(entriesOnDom.clearDOMWithEmptyString)
+                    .then(API.getJournalEntries)
+                    .then(parsedEntries => {
+                        parsedEntries.forEach(entry => {
+                            entriesOnDom.renderJournalEntry(entry)
+                            location.reload(true)
+                        })
+                    })
+            }
+        })
+    }
 
 }
 
