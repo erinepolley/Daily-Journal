@@ -30,11 +30,27 @@ const journalSenderToApi = {
                 .then(parsedEntries => {
                     parsedEntries.forEach(entry => {
                         entriesOnDom.renderJournalEntry(entry)
-            
+
                     })
                 })
-                
+
         }
+    },
+    populateFormFields(entryToEdit) {
+        let hiddenInputId = document.querySelector("#formId")
+        let dateInput = document.querySelector("#date")
+        let titleInput = document.querySelector("#title")
+        let contentsInput = document.querySelector("#contents")
+        let moodInput = document.querySelector("option")
+        API.getEntryToEdit(entryToEdit)
+            .then(returnedEntry => {
+                console.log("RETURNED ENTRY", returnedEntry)
+                hiddenInputId.value = returnedEntry.id
+                dateInput.value = returnedEntry.date
+                titleInput.value = returnedEntry.title
+                contentsInput.value = returnedEntry.contents
+                moodInput.value - returnedEntry.mood
+            })
     }
 }
 

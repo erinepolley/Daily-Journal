@@ -7,6 +7,11 @@ const API = {
             .then(response => response.json())
     },
 
+    getEntryToEdit(entryEditId) {
+        return fetch(`http://localhost:3000/entries/${entryEditId}`)
+            .then(response => response.json())
+    },
+
     saveJournalEntry(entryObject) {
         return fetch("http://localhost:3000/entries", {
             method: "POST",

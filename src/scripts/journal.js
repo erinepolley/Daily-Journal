@@ -1,7 +1,7 @@
 import API from "./data.js"
 import journalSenderToApi from "./journalSenderToApi.js"
 import entriesOnDom from "./entriesDOM.js"
-import deleteButtonListener from "./eventListeners.js"
+import buttonListener from "./eventListeners.js"
 // import eventListener from "./eventListener.js"
 //RESPONSIBILITY: INITIAL VIEW
 
@@ -38,7 +38,7 @@ const submitButtonEventListener = document.querySelector("#submit-button")
 console.log(submitButtonEventListener)
 submitButtonEventListener.addEventListener("click", () => journalSenderToApi.sendJournalEntryToApi())
 
-deleteButtonListener.registerDeleteListener()
+buttonListener.registerDeleteListener()
 
 // const dropdownValues = document.querySelector("option")
 // console.log(dropdownValues.value)

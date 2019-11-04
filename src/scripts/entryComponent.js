@@ -9,6 +9,7 @@ const entryComponentToHtml = {
     <p><em>${journalEntry.date}</em></p>
     <p>${journalEntry.contents}</p>
     <p>${journalEntry.mood}</p>
+    <button id="editEntry--${journalEntry.id}">Edit Entry</button>
     <button id="deleteEntry--${journalEntry.id}">
     Delete Entry
     </button>
