@@ -7,6 +7,11 @@ const API = {
             .then(response => response.json())
     },
 
+    getEntryToEdit(entryEditId) {
+        return fetch(`http://localhost:3000/entries/${entryEditId}`)
+            .then(response => response.json())
+    },
+
     saveJournalEntry(entryObject) {
         return fetch("http://localhost:3000/entries", {
             method: "POST",
@@ -24,8 +29,16 @@ const API = {
         // })
     },
 
-            // .then(this.getJournalEntries())
-        // .then
+    editJournalEntry (hiddenFormId, editedJournalObj) {
+        return fetch(`http://localhost:3000/entries/${hiddenFormId}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(editedJournalObj)
+        })
+            .then(response => response.json())
+    },
 
     deleteJournalEntry (entryId) {
         return fetch(`http://localhost:3000/entries/${entryId}`, {

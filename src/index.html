@@ -18,6 +18,7 @@
     </header>
     <form id="form" action="">
         <fieldset>
+            <input type="hidden" id="formId" value = ""/>
             <label for="date">Date</label>
             <input type="date" id="date" name="date">
             <br>
@@ -30,7 +31,7 @@
             <textarea name="journal" id="contents" cols="50" rows="10"></textarea>
             <br>
             <p>Mood</p>
-             <select name="mood" id="mood">
+            <select name="mood" id="mood">
                 <option value="confident">Confident</option>
                 <option value="optimistic">Optimistic</option>
                 <option value="productive">Productive</option>
@@ -40,8 +41,8 @@
                 <option value="discouraged">Discouraged</option>
                 <option value="depressed">Depressed</option>
                 <option value="uncomfortable">Uncomfortable</option>
-                <option value="worried">Nervous/Worried</option>
-            </select> 
+                <option value="nervous">Nervous/Worried</option>
+            </select>
             <br>
         </fieldset>
     </form>
@@ -50,34 +51,34 @@
 
     <legend>Filter Journal Entries by Mood</legend>
     <input type="radio" id="radio-confident" name="radio" value="confident" checked>
-    <label for="radio-confident">Confident</label>    
+    <label for="radio-confident">Confident</label>
 
     <input type="radio" id="radio-optimistic" name="radio" value="optimistic">
-    <label for="radio-optimistic">Optimistic</label> 
+    <label for="radio-optimistic">Optimistic</label>
 
     <input type="radio" id="radio-productive" name="radio" value="productive">
-    <label for="radio-productive">Productive</label> 
+    <label for="radio-productive">Productive</label>
 
     <input type="radio" id="radio-successful" name="radio" value="successful">
-    <label for="radio-successful">Successful</label> 
+    <label for="radio-successful">Successful</label>
 
     <input type="radio" id="radio-wizard" name="radio" value="wizard">
-    <label for="radio-wizard">Like a Coding Wizard</label> 
+    <label for="radio-wizard">Like a Coding Wizard</label>
 
     <input type="radio" id="radio-confused" name="radio" value="confused">
-    <label for="radio-confused">Confused</label> 
+    <label for="radio-confused">Confused</label>
 
     <input type="radio" id="radio-discouraged" name="radio" value="discouraged">
-    <label for="radio-discouraged">Discouraged</label> 
+    <label for="radio-discouraged">Discouraged</label>
 
     <input type="radio" id="radio-depressed" name="radio" value="depressed">
-    <label for="radio-depressed">Depressed</label> 
+    <label for="radio-depressed">Depressed</label>
 
     <input type="radio" id="radio-uncomfortable" name="radio" value="uncomfortable">
-    <label for="radio-uncomfortable">Uncomfortable</label> 
+    <label for="radio-uncomfortable">Uncomfortable</label>
 
     <input type="radio" id="radio-nervous" name="radio" value="nervous">
-    <label for="radio-nervous">Nervous/Worried</label> 
+    <label for="radio-nervous">Nervous/Worried</label>
 
     <article id="journal-entries"></article>
 
