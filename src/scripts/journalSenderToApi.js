@@ -36,12 +36,16 @@ const journalSenderToApi = {
 
         }
     },
+    // editedObject = 
     populateFormFields(entryToEdit) {
+        scroll(0,0)
         let hiddenInputId = document.querySelector("#formId")
         let dateInput = document.querySelector("#date")
         let titleInput = document.querySelector("#title")
         let contentsInput = document.querySelector("#contents")
-        let moodInput = document.querySelector("option")
+        let moodInput = document.querySelector("#mood")
+        // let moodInput = document.querySelectorAll("option")
+        console.log("MOOD IMPUT", moodInput)
         API.getEntryToEdit(entryToEdit)
             .then(returnedEntry => {
                 console.log("RETURNED ENTRY", returnedEntry)
@@ -49,8 +53,13 @@ const journalSenderToApi = {
                 dateInput.value = returnedEntry.date
                 titleInput.value = returnedEntry.title
                 contentsInput.value = returnedEntry.contents
-                moodInput.value - returnedEntry.mood
-            })
+                moodInput.value = returnedEntry.mood
+                console.log("MOOD INPUT VALUE", moodInput.value)
+                // entryObjectFactoryFunction.newJournalEntry()
+
+        })
+        
+
     }
 }
 
