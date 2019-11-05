@@ -65,52 +65,10 @@
     },
     {
       "date": "2019-11-04",
-      "title": "WHAT",
-      "contents": "HELLO HI HOW ARE YA",
+      "title": "PUT",
+      "contents": "I successfully completed PUT with minimal help, and in a day! YES! Got my mojo back. ",
       "mood": "confident",
-      "id": 15
-    },
-    {
-      "date": "2019-11-04",
-      "title": "WHAT",
-      "contents": "HELLO HI HOW ARE YA",
-      "mood": "confident",
-      "id": 16
-    },
-    {
-      "date": "2019-11-04",
-      "title": "WHAT'S GOING ON",
-      "contents": "I DONT KNOW",
-      "mood": "confident",
-      "id": 17
-    },
-    {
-      "date": "2019-11-04",
-      "title": "WHAT'S GOING ON",
-      "contents": "I DONT KNOW",
-      "mood": "confident",
-      "id": 18
-    },
-    {
-      "date": "2019-11-04",
-      "title": "WHAT'S GOING ON",
-      "contents": "I DONT KNOW",
-      "mood": "confident",
-      "id": 19
-    },
-    {
-      "date": "2019-11-04",
-      "title": "WHAT",
-      "contents": "WHAT",
-      "mood": "confident",
-      "id": 20
-    },
-    {
-      "date": "2019-11-04",
-      "title": "WILL THIS WORK",
-      "contents": "I DONT KNOW",
-      "mood": "confident",
-      "id": 21
+      "id": 10
     }
   ]
 }

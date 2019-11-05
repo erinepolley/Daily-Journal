@@ -2,8 +2,8 @@ import API from "./data.js"
 import journalSenderToApi from "./journalSenderToApi.js"
 import entriesOnDom from "./entriesDOM.js"
 import buttonListener from "./eventListeners.js"
-import newJournalEntry from "./entryObjectFactoryFunction"
-import entryObjectFactoryFunction from "./entryObjectFactoryFunction"
+import entryObjectFactoryFunction from "./entryObjectFactoryFunction.js"
+
 // import eventListener from "./eventListener.js"
 //RESPONSIBILITY: INITIAL VIEW
 
@@ -48,10 +48,18 @@ submitButtonEventListener.addEventListener("click", () => {
         let contentsInput = document.querySelector("#contents")
         let moodInput = document.querySelector("#mood")
         let editedFactoryFunction = entryObjectFactoryFunction.newJournalEntry(dateInput.value, titleInput.value, contentsInput.value, moodInput.value)
-        console.log(editedFactoryFunction)
+        console.log("EDITED FACTORY FUNCTION", editedFactoryFunction)
+        console.log(hiddenFieldId.value)
         API.editJournalEntry(hiddenFieldId.value, editedFactoryFunction)
             .then(() => {
                 document.querySelector("#formId").value = ""
+            })
+            .then(() => API.getJournalEntries())
+            // takeThingFromJsonAndRenderOnDom();
+            .then(parsedEntries => {
+                parsedEntries.forEach(entry => {
+                    entriesOnDom.renderJournalEntry(entry)
+                })
             })
     } else {
         console.log("HIDDEN FIELD ID VALUE", hiddenFieldId.value)
