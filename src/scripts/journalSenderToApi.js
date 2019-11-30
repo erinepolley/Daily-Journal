@@ -5,13 +5,15 @@ import entriesOnDom from "./entriesDOM.js"
 // import entriesOnDom from "./entriesDOM.js"
 
 const journalSenderToApi = {
-
+//This function sends the new journal entry to JSON server.
     sendJournalEntryToApi() {
+        //console.log("HI THERE")
         const date = document.querySelector("#date").value
         const title = document.querySelector("#title").value
         const contents = document.querySelector("#contents").value
-        const mood = document.querySelector("option").value
-
+        const mood = document.querySelector("#mood").value
+        //console.log(date)
+        //console.log("MOOD WHEN ENTRY IS FIRST SUBMITTED", mood)
         //alert for calendar fires upon loading, not upon clicking submit button.
         if (date === "") {
             return alert("Please enter a date.")
@@ -23,7 +25,7 @@ const journalSenderToApi = {
             return alert("Please select a mood.")
         } else {
             let entryObjectBox = entryObjectFactoryFunction.newJournalEntry(date, title, contents, mood)
-            console.log(entryObjectBox)
+            console.log("ENTRY FROM FACTORY FUNCTION", entryObjectBox)
             // entriesOnDom.clearDOMWithEmptyString()
             API.saveJournalEntry(entryObjectBox)
                 .then(API.getJournalEntries)
@@ -36,7 +38,8 @@ const journalSenderToApi = {
 
         }
     },
-    // editedObject = 
+
+    //When the user clicks the edit button on any rendered journal entry
     populateFormFields(entryToEdit) {
         scroll(0,0)
         let hiddenInputId = document.querySelector("#formId")

@@ -11,18 +11,8 @@ import entryObjectFactoryFunction from "./entryObjectFactoryFunction.js"
     Main application logic that uses the functions and objects
     defined in the other JavaScript files.
 
-    Change the fake variable names below to what they should be
-    to get the data and display it.
-
 */
 
-// const takeThingFromJsonAndRenderOnDom = () =>{
-//   return .then(parsedEntries => {
-//         parsedEntries.forEach(entry => {
-//             entriesOnDom.renderJournalEntry(entry)
-//         })
-//     })
-// }
 // Invoke the render function, and the argument is the array of objects in the data.js file. 
 
 API.getJournalEntries()
@@ -36,40 +26,11 @@ API.getJournalEntries()
 
 
 //at some point this will be the factory function?
-const submitButtonEventListener = document.querySelector("#submit-button")
-console.log("SUBMIT BUTTON", submitButtonEventListener)
-submitButtonEventListener.addEventListener("click", () => {
-    const hiddenFieldId = document.getElementById("formId")
-    //If there ISN'T a value, you want to SAVE
-    //If there IS a value, you want to EDIT(PUT)
-    if (hiddenFieldId.value !== "") {
-        let dateInput = document.querySelector("#date")
-        let titleInput = document.querySelector("#title")
-        let contentsInput = document.querySelector("#contents")
-        let moodInput = document.querySelector("#mood")
-        let editedFactoryFunction = entryObjectFactoryFunction.newJournalEntry(dateInput.value, titleInput.value, contentsInput.value, moodInput.value)
-        console.log("EDITED FACTORY FUNCTION", editedFactoryFunction)
-        console.log(hiddenFieldId.value)
-        API.editJournalEntry(hiddenFieldId.value, editedFactoryFunction)
-            .then(() => {
-                document.querySelector("#formId").value = ""
-            })
-            .then(() => API.getJournalEntries())
-            // takeThingFromJsonAndRenderOnDom();
-            .then(parsedEntries => {
-                parsedEntries.forEach(entry => {
-                    entriesOnDom.renderJournalEntry(entry)
-                })
-            })
-    } else {
-        console.log("HIDDEN FIELD ID VALUE", hiddenFieldId.value)
-        journalSenderToApi.sendJournalEntryToApi()
-    }
-})
 
 
 buttonListener.registerDeleteListener()
-
+buttonListener.submitEventListener()
+buttonListener.radioButtonEventListener()
 // const dropdownValues = document.querySelector("option")
 // console.log(dropdownValues.value)
 
@@ -87,36 +48,7 @@ buttonListener.registerDeleteListener()
 // }
 
 // renderRadioButtonToDom()
-
-const radioButtons = document.getElementsByName("radio")
-console.log("RADIO", radioButtons)
-radioButtons.forEach(button => {
-    button.addEventListener("click", event => {
-
-        // entriesOnDom.clearDOMWithEmptyString()
-        let mood = event.target.value
-        console.log("MOOD", mood)
-        // let entryBox = document.querySelector("#journal-entries")
-        // entryBox.innerHTML = ""
-        entriesOnDom.journalInnerHtml = ""
-        API.getJournalEntries()
-            .then(parsedEntries => {
-                console.log("PARSED ENTRIES", parsedEntries)
-                let arrayThatMatchesMood = parsedEntries.filter(entry =>
-                    mood === entry.mood)
-                console.log("FILTEREDARRAY", arrayThatMatchesMood)
-                // entriesOnDOM[journalInnerHtml].innerHTML = ""
-
-                // let entryBox = document.querySelector("#journal-entries") 
-                // console.log("ENTRY BOX", entryBox)
-                // entryBox.innerHTML = ""
-                //    console.log("EMPTY ENTRY BOX", entryBox)
-                arrayThatMatchesMood.forEach(objInArray => {
-                    entriesOnDom.renderJournalEntry(objInArray)
-                    console.log("NEW ARRAY", arrayThatMatchesMood)
-                })
-            })
-    })
-}) // })
+//This method 
+ // })
 //SUPPOSED TO BE IN EVENTS.JS AND JUST INVOKED HERE.
 
