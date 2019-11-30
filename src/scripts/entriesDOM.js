@@ -7,8 +7,6 @@ import entryComponentToHtml from "./entryComponent.js"
     Looping through each object in the array with .forEach. Rendering the HTML with contents of object, then storing it in journalInnerHtml.
 */
 
-
-
 const entriesOnDom = {
     journalInnerHtml: "",
     renderJournalEntry(journalEntryObj) {
