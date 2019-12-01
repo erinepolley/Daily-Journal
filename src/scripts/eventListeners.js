@@ -7,6 +7,7 @@ const journalEntries = document.querySelector("#journal-entries")
 const submitButtonEventListener = document.querySelector("#submit-button")
 const radioButtons = document.getElementsByName("radio")
 
+
 const buttonListener = {
     //This method is the event listener that listens for delete/edit
     registerDeleteListener() {
@@ -66,7 +67,7 @@ const buttonListener = {
                         })
                     })
             } else {
-              // console.log("HIDDEN FIELD ID VALUE", hiddenFieldId.value)
+                // console.log("HIDDEN FIELD ID VALUE", hiddenFieldId.value)
                 journalSenderToApi.sendJournalEntryToApi()
             }
         })
@@ -102,6 +103,28 @@ const buttonListener = {
                         })
                     })
             })
+        })
+    },
+
+    searchEventListener() {
+        const searchBox = document.querySelector("#search")
+        console.log("SEARCH BOX", searchBox)
+        searchBox.addEventListener("keypress", keyPressEvent => {
+            if (keyPressEvent.charCode === 13) {
+                API.getJournalEntries()
+                    .then(entries => {
+                        entries.forEach(entry => {
+                            const entryValues = Object.values(entry)
+                            console.log(entryValues)
+                            if searchBox.value === 
+
+                        })
+                    }
+                    )
+                // const matchingEntries = 
+                // const entries = document.querySelector("#journal-entries")
+                // console.log("WHAT IS JOURNAL ENTRIES",entries)
+            }
         })
     }
 

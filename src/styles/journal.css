@@ -28,6 +28,7 @@ p {
 
 .btn {
     margin-top: 40px;
+    text-transform: uppercase;
 }
 
 #filter-search {

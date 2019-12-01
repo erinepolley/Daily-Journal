@@ -31,6 +31,7 @@ API.getJournalEntries()
 buttonListener.registerDeleteListener()
 buttonListener.submitEventListener()
 buttonListener.radioButtonEventListener()
+buttonListener.searchEventListener()
 // const dropdownValues = document.querySelector("option")
 // console.log(dropdownValues.value)
 
