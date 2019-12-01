@@ -51,10 +51,12 @@ const buttonListener = {
                     .then(() => {
                         document.querySelector("#formId").value = ""
                         entriesOnDom.journalInnerHtml = ""
-                        document.querySelector("#contents").value = ""
-                        document.querySelector("#title").value = ""
-                        document.querySelector("#date").value = ""
-                        document.querySelector("#mood").value = ""
+                        contentsInput.value = ""
+                        // console.log("AM I COMING IN CLEAR?")
+                        // console.log("TITLE INPUT VALUE", titleInput.value)
+                        titleInput.value = ""
+                        dateInput.value = ""
+                        moodInput.value = ""
                     })
                     .then(() => API.getJournalEntries())
                     // takeThingFromJsonAndRenderOnDom();
