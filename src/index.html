@@ -18,7 +18,7 @@
     </header>
     <form id="form" action="">
         <fieldset>
-            <input type="hidden" id="formId" value = ""/>
+            <input type="hidden" id="formId" value="" />
             <label for="date">Date</label>
             <input type="date" id="date" name="date">
             <br>
@@ -46,40 +46,47 @@
             <br>
         </fieldset>
     </form>
-    <!-- <div id="radio-buttons"></div> -->
     <button type="button" id="submit-button" class="btn btn-info">Submit</button>
 
-    <legend>Filter Journal Entries by Mood</legend>
-    <input type="radio" id="radio-confident" name="radio" value="confident" checked>
-    <label for="radio-confident">Confident</label>
+    <div id="filter-search">
+        <div id="filter" class="filter-search-box">
+            <legend>Filter Journal Entries by Mood</legend>
+            <input type="radio" id="radio-confident" name="radio" value="confident" checked>
+            <label for="radio-confident">Confident</label>
 
-    <input type="radio" id="radio-optimistic" name="radio" value="optimistic">
-    <label for="radio-optimistic">Optimistic</label>
+            <input type="radio" id="radio-optimistic" name="radio" value="optimistic">
+            <label for="radio-optimistic">Optimistic</label>
 
-    <input type="radio" id="radio-productive" name="radio" value="productive">
-    <label for="radio-productive">Productive</label>
+            <input type="radio" id="radio-productive" name="radio" value="productive">
+            <label for="radio-productive">Productive</label>
 
-    <input type="radio" id="radio-successful" name="radio" value="successful">
-    <label for="radio-successful">Successful</label>
+            <input type="radio" id="radio-successful" name="radio" value="successful">
+            <label for="radio-successful">Successful</label>
 
-    <input type="radio" id="radio-wizard" name="radio" value="wizard">
-    <label for="radio-wizard">Like a Coding Wizard</label>
+            <input type="radio" id="radio-wizard" name="radio" value="wizard">
+            <label for="radio-wizard">Like a Coding Wizard</label>
 
-    <input type="radio" id="radio-confused" name="radio" value="confused">
-    <label for="radio-confused">Confused</label>
+            <input type="radio" id="radio-confused" name="radio" value="confused">
+            <label for="radio-confused">Confused</label>
 
-    <input type="radio" id="radio-discouraged" name="radio" value="discouraged">
-    <label for="radio-discouraged">Discouraged</label>
+            <input type="radio" id="radio-discouraged" name="radio" value="discouraged">
+            <label for="radio-discouraged">Discouraged</label>
 
-    <input type="radio" id="radio-depressed" name="radio" value="depressed">
-    <label for="radio-depressed">Depressed</label>
+            <input type="radio" id="radio-depressed" name="radio" value="depressed">
+            <label for="radio-depressed">Depressed</label>
 
-    <input type="radio" id="radio-uncomfortable" name="radio" value="uncomfortable">
-    <label for="radio-uncomfortable">Uncomfortable</label>
+            <input type="radio" id="radio-uncomfortable" name="radio" value="uncomfortable">
+            <label for="radio-uncomfortable">Uncomfortable</label>
 
-    <input type="radio" id="radio-nervous" name="radio" value="nervous">
-    <label for="radio-nervous">Nervous/Worried</label>
-
+            <input type="radio" id="radio-nervous" name="radio" value="nervous">
+            <label for="radio-nervous">Nervous/Worried</label>
+        </div>
+        <div id="search-box" class="filter-search-box">
+            <!-- <label for="search">Keyword Search</label> -->
+            <legend>Keyword Search</legend>
+            <input type="text" id="search" placeholder="ex. React" />
+        </div>
+    </div>
     <article id="journal-entries"></article>
 
     <!-- <script src="scripts/entryComponent.js"></script>
