@@ -105,29 +105,48 @@ const buttonListener = {
             })
         })
     },
-
+    //For this, I'd like to match what the user searches for with anything in the input fields in the entry objects.
+    //First, I need to grab the value of what the user enters. 
+    //Then, I need to grab the journal entries.
+    //Then, I need to compare the values of the objects with the value of the search.
+    //I could do this by a. iterating over each object, doing object.value for each, and then b) iterate over that array of returned values, comparing the search value to each value in the object. Then c) conditional: if something matches, then take that whole object and render it to the DOM.   
     searchEventListener() {
         const searchBox = document.querySelector("#search")
         console.log("SEARCH BOX", searchBox)
-        searchBox.addEventListener("keypress", keyPressEvent => {
-            if (keyPressEvent.charCode === 13) {
+        searchBox.addEventListener("keypress", () => {
+            if (event.charCode === 13) {
+                const searchValue = event.target.value
+                console.log(searchValue)
                 API.getJournalEntries()
                     .then(entries => {
+                        // const matchingEntries = entries.find(
+                        //     entry =>
+                        //     Object.values(entry)===searchBox.value
+                        // )
+                        //     console.log("MATCHING ENTRIES??",matchingEntries)
                         entries.forEach(entry => {
                             const entryValues = Object.values(entry)
                             console.log(entryValues)
-                            if searchBox.value === 
-
-                        })
-                    }
-                    )
+                            for (let i = 0; i < entryValues.length; i++) {
+                                if (searchValue === entryValues[i]) {
+                                    entriesOnDom.journalInnerHtml = ""
+                                    entriesOnDom.renderJournalEntry(entry)
+                                // } else {
+                                //     alert("No entries match.")
+                                // }
+                            }
+                        }
+                    })
+                    
                 // const matchingEntries = 
                 // const entries = document.querySelector("#journal-entries")
                 // console.log("WHAT IS JOURNAL ENTRIES",entries)
-            }
-        })
-    }
-
+            })
+        }
+    })
 }
+}
+
+
 
 export default buttonListener
