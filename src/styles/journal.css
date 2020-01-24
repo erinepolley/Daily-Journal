@@ -1,6 +1,11 @@
 body {
 font-family: "Source Sans Pro", sans-serif;
-background-color: whitesmoke;
+background-color: white;
+background-image: url("haley-powers-QESaXJBiB8Y-unsplash.jpg");
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: 100%;
+background-position: 50% 50%;
 color: midnightblue;
 }
 
@@ -9,21 +14,41 @@ color: midnightblue;
     flex-direction: column;
 }
 
-/* header {
-    background-color: 
-} */
+.form-background {
+    background-color: white;
+    background: hsla(0, 0%, 100%, 0.5)
+    /* opacity: .1; */
+}
+
+.header-form-submit {
+    text-align: center;
+}
+
+.header-flexbox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
 
 h1 {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+    font-size: 50px;
     font-weight: 600;
+    color: midnightblue;
+    padding: 25px 0px 25px;
+    /* position: fixed; */
 }
 
 label {
-    font-size: 120%;
+    font-size: 30px;
 }
 
 p {
     font-size: 120%;
+}
+
+header {
+    background-color: white;
 }
 
 .btn {
@@ -34,12 +59,13 @@ p {
 #filter-search {
     display: flex;
     flex-wrap: nowrap;
-    justify-content: space-around
+    justify-content: space-around;
 }
 
 .filter-search-box {
     border: 1px solid midnightblue;
     padding: 20px;
     margin-top: 40px;
-    margin-bottom: 40px
+    margin-bottom: 40px;
+    background-color: white;
 }

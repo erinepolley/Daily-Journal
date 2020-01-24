@@ -13,13 +13,22 @@
 </head>
 
 <body>
+    <div class="header-form-submit">
     <header>
+         <div class="header-flexbox">
+        <div>HAHA</div>
         <h1>Daily Journal</h1>
+        <div id="search-box" class="filter-search-box">
+            <label for="search">Keyword Search</label>
+            <input type="text" id="search" placeholder="ex. React" />
+        </div>
+        </div>
     </header>
+    <div class="form-background">
     <form id="form" action="">
         <fieldset>
             <input type="hidden" id="formId" value="" />
-            <label for="date">Date</label>
+            <label for="date">Date</label><br>
             <input type="date" id="date" name="date">
             <br>
             <label for="concepts">Concepts Covered</label>
@@ -35,7 +44,7 @@
                 <option value="confident">Confident</option>
                 <option value="optimistic">Optimistic</option>
                 <option value="productive">Productive</option>
-                <option value="successful">Successful</option>
+                <option value="successful">Successful  </option>
                 <option value="wizard">Like a Coding Wizard!</option>
                 <option value="confused">Confused</option>
                 <option value="discouraged">Discouraged</option>
@@ -47,7 +56,8 @@
         </fieldset>
     </form>
     <button type="button" id="submit-button" class="btn btn-info">Submit</button>
-
+    <div>
+    </div>
     <div id="filter-search">
         <div id="filter" class="filter-search-box">
             <legend>Filter Journal Entries by Mood</legend>
