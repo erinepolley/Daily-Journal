@@ -16,11 +16,14 @@
     <div class="header-form-submit">
     <header>
          <div class="header-flexbox">
-        <div>HAHA</div>
+            <img class="logo" src="styles/pen.svg" alt="journal-logo">
+            <!-- <div id="invisible-box" class="filter-search-box">
+                <input type="text" id="invisible-search" />
+            </div> -->
         <h1>Daily Journal</h1>
         <div id="search-box" class="filter-search-box">
-            <label for="search">Keyword Search</label>
-            <input type="text" id="search" placeholder="ex. React" />
+            <!-- <label for="search">Keyword Search</label> -->
+            <input type="text" id="search" />
         </div>
         </div>
     </header>
@@ -39,7 +42,8 @@
             <br>
             <textarea name="journal" id="contents" cols="50" rows="10"></textarea>
             <br>
-            <p>Mood</p>
+            <label>Mood</label>
+            <br>
             <select name="mood" id="mood">
                 <option value="confident">Confident</option>
                 <option value="optimistic">Optimistic</option>
@@ -54,12 +58,12 @@
             </select>
             <br>
         </fieldset>
-    </form>
+    </form><br>
     <button type="button" id="submit-button" class="btn btn-info">Submit</button>
     <div>
     </div>
     <div id="filter-search">
-        <div id="filter" class="filter-search-box">
+        <div id="filter-search-box">
             <legend>Filter Journal Entries by Mood</legend>
             <input type="radio" id="radio-confident" name="radio" value="confident" checked>
             <label for="radio-confident">Confident</label>
@@ -91,11 +95,11 @@
             <input type="radio" id="radio-nervous" name="radio" value="nervous">
             <label for="radio-nervous">Nervous/Worried</label>
         </div>
-        <div id="search-box" class="filter-search-box">
-            <!-- <label for="search">Keyword Search</label> -->
+        <!-- <div id="search-box" class="filter-search-box">
+            <label for="search">Keyword Search</label>
             <legend>Keyword Search</legend>
             <input type="text" id="search" placeholder="ex. React" />
-        </div>
+        </div> -->
     </div>
     <article id="journal-entries"></article>
 
