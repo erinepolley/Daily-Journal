@@ -1,6 +1,9 @@
 # Daily-Journal
 This is my daily journal, recording my mood, thoughts, and processes throughout the NSS experience. I used HTML, CSS, JavaScript, JSON server, Bootstrap, and Icons8 to complete this project. 
-#
+
+## Demo
+![Daily Journal Gif Demo](dailyjournal.gif)
+
 ## How to View Locally
 1. Clone this repo: `git@github.com:erinepolley/Daily-Journal.git`
 2. Open code editor.
